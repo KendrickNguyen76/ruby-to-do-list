@@ -1,10 +1,20 @@
 # This file contains all of the methods that handle the logic of the to-do app.
 
 # Constants
-HELP_PATH = "./help.txt"
-EXAMPLE_LIST_PATH = "./example.txt"
+
+# .txt File Paths
+# These files need to be in the same directory as the .rb files, they are used
+# for storing the list information and the information used by the help command.
+
+HELP_PATH = "./help.txt" # Text file containing the help information
+EXAMPLE_LIST_PATH = "./example.txt" # Text file containing an example of a finalized list
+
+# Command Hash
+# This hash contains all of the valid commands that the user can use.
+
 VALID_COMMAND_HASH = {"HELP" => true, "EXIT" => true, "LIST" => true}
 VALID_COMMAND_HASH.default = false
+
 
 def is_valid_command(user_comm)
     # This method checks to see if the string given to it is a
