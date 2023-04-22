@@ -14,7 +14,9 @@ LIST_PATH = "./list.txt" # Text file contianing the user's list. They can edit t
 # Command Hash
 # This hash contains all of the valid commands that the user can use.
 
-VALID_COMMAND_HASH = {"HELP" => true, "EXIT" => true, "LIST" => true, "ADD" => true}
+VALID_COMMAND_HASH = {"HELP" => true, "EXIT" => true, 
+                      "LIST" => true, "ADD" => true, 
+                      "CLEAR" => true}
 VALID_COMMAND_HASH.default = false
 
 
@@ -39,6 +41,12 @@ def add_to_file(file_path, message)
     File.write(file_path, "\n", mode: "a")
 end
 
+def clear_the_file(file_path)
+    # Needs to be given a string that represents a file. Writes the empty string
+    # to that file in order to clear it out (I think).
+    File.write(file_path, "")
+end
+
 def process_exit
     # Returns the string "Thank you", which gets printed to end the program.
     return "Thank you!"
@@ -59,4 +67,10 @@ def process_add(new_task)
     # This method takes one string, and writes it to the list.txt folder
     # in order to add it to their to-do list.
     add_to_file(LIST_PATH, new_task)
+end
+
+def process_clear
+    # When this method gets called, it clears the list.txt file in order to clear
+    # the user's to-do list.
+    clear_the_file(LIST_PATH)
 end

@@ -92,5 +92,9 @@ def handle_list_commands(command)
         process_add(new_task)
         puts
         puts "Your task has been added!"
+    elsif command == "CLEAR"
+        # Inputing this command makes the user clear their to-do list.
+        process_clear()
+        puts "Your to-do list has been cleared!"
     end
 end
