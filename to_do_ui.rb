@@ -11,7 +11,7 @@ def start_page
     # This method welcomes the user to the program and prompts them to
     # input HELP into the terminal if they require assistance.
     puts "Welcome to your to-do list!"
-    puts "Please input HELP (in all caps) if you would like a list of basic commands"
+    puts "Please input HELP or help if you would like a list of basic commands"
     print_divider()
 end
 

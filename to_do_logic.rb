@@ -33,7 +33,10 @@ def read_from_file(file_path)
 end
 
 def add_to_file(file_path, message)
+    # Needs to be given two strings: a file path and a message. Adds the message 
+    # to the end of the file located at file_path. Also adds a new line.
     File.write(file_path, message, mode: "a")
+    File.write(file_path, "\n", mode: "a")
 end
 
 def process_exit
@@ -48,10 +51,8 @@ end
 
 def process_list
     # Returns an array with the text from the list.txt file, which
-    # contains the user's list. As of right now, this will instead
-    # be linked to example.txt, which will act as a default before
-    # the final version.
-    return read_from_file(EXAMPLE_LIST_PATH)
+    # contains the user's list.
+    return read_from_file(LIST_PATH)
 end
 
 def process_add(new_task)
