@@ -8,11 +8,13 @@
 
 HELP_PATH = "./help.txt" # Text file containing the help information
 EXAMPLE_LIST_PATH = "./example.txt" # Text file containing an example of a finalized list
+LIST_PATH = "./list.txt" # Text file contianing the user's list. They can edit this 
+# through various actions in the terminal application.
 
 # Command Hash
 # This hash contains all of the valid commands that the user can use.
 
-VALID_COMMAND_HASH = {"HELP" => true, "EXIT" => true, "LIST" => true}
+VALID_COMMAND_HASH = {"HELP" => true, "EXIT" => true, "LIST" => true, "ADD" => true}
 VALID_COMMAND_HASH.default = false
 
 
@@ -28,6 +30,10 @@ def read_from_file(file_path)
     # then returns all of it as an array.
     file_text = File.read(file_path).split("\n")
     return file_text
+end
+
+def add_to_file(file_path, message)
+    File.write(file_path, message, mode: "a")
 end
 
 def process_exit
@@ -46,4 +52,10 @@ def process_list
     # be linked to example.txt, which will act as a default before
     # the final version.
     return read_from_file(EXAMPLE_LIST_PATH)
+end
+
+def process_add(new_task)
+    # This method takes one string, and writes it to the list.txt folder
+    # in order to add it to their to-do list.
+    add_to_file(LIST_PATH, new_task)
 end

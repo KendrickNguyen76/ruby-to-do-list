@@ -53,6 +53,7 @@ def get_command_processed(command)
     if is_valid_command(command)
         command.upcase!
         handle_general_commands(command)
+        handle_list_commands(command)
         print_divider()
     else
         puts "This is an invalid command, try again."
@@ -77,5 +78,19 @@ def handle_general_commands(command)
         list_text = process_list()
         puts "Your To-Do List: "
         print_array(list_text, "- ")
+    end
+end
+
+def handle_list_commands(command)
+    # This method needs to be given a string that represents a user's command.
+    # If the command is one of the list-specific commands, then this method will handle
+    # their execution and displaying them to the user.
+    if command == "ADD"
+        # Prompts the user to add a new task to their to-do list, and adds it
+        print "Enter your new task: "
+        new_task = gets.chomp
+        process_add(new_task)
+        puts
+        puts "Your task has been added!"
     end
 end
