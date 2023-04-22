@@ -52,22 +52,30 @@ def get_command_processed(command)
     # is, carry that command out.
     if is_valid_command(command)
         command.upcase!
-        if command == "EXIT"
-            # Don't do anything, the program will end
-            puts process_exit()
-        elsif command == "HELP"
-            # Print out helpful info the user might need
-            help_text = process_help()
-            print_array(help_text)
-        elsif command == "LIST"
-            # Print out the contents of the user's list
-            list_text = process_list()
-            puts "Your To-Do List: "
-            print_array(list_text, "- ")
-        end
+        handle_general_commands(command)
         print_divider()
     else
         puts "This is an invalid command, try again."
         print_divider()
+    end
+end
+
+def handle_general_commands(command)
+    # This method needs to be given a string that represents a user's command.
+    # If the command is one of the general commands, then this method will handle
+    # their execution and displaying them to the user.
+
+    if command == "EXIT"
+        # Don't do anything, the program will end
+        puts process_exit()
+    elsif command == "HELP"
+        # Print out helpful info the user might need
+        help_text = process_help()
+        print_array(help_text)
+    elsif command == "LIST"
+        # Print out the contents of the user's list
+        list_text = process_list()
+        puts "Your To-Do List: "
+        print_array(list_text, "- ")
     end
 end
