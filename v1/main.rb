@@ -2,7 +2,7 @@
 # what happens lmao.
 
 # Constants
-UI_PATH = "./to_do_ui.rb"
+UI_PATH = "./v1/to_do_ui.rb"
 
 # Requirements
 require UI_PATH

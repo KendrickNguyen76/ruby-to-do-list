@@ -6,9 +6,9 @@
 # These files need to be in the same directory as the .rb files, they are used
 # for storing the list information and the information used by the help command.
 
-HELP_PATH = "./help.txt" # Text file containing the help information
-EXAMPLE_LIST_PATH = "./example.txt" # Text file containing an example of a finalized list
-LIST_PATH = "./list.txt" # Text file contianing the user's list. They can edit this 
+HELP_PATH = "./v1/help.txt" # Text file containing the help information
+EXAMPLE_LIST_PATH = "./v1/example.txt" # Text file containing an example of a finalized list
+LIST_PATH = "./v1/list.txt" # Text file contianing the user's list. They can edit this 
 # through various actions in the terminal application.
 
 # Command Hash

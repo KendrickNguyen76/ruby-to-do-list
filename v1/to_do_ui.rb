@@ -2,7 +2,7 @@
 # in the terminal.
 
 # CONSTANTS
-LOGIC_PATH = "./to_do_logic.rb"
+LOGIC_PATH = "./v1/to_do_logic.rb"
 
 # Requirements
 require LOGIC_PATH
