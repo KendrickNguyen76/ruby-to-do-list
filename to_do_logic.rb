@@ -16,7 +16,7 @@ LIST_PATH = "./list.txt" # Text file contianing the user's list. They can edit t
 
 VALID_COMMAND_HASH = {"HELP" => true, "EXIT" => true, 
                       "LIST" => true, "ADD" => true, 
-                      "CLEAR" => true}
+                      "CLEAR" => true, "REMOVE" => true}
 VALID_COMMAND_HASH.default = false
 
 
@@ -73,4 +73,16 @@ def process_clear
     # When this method gets called, it clears the list.txt file in order to clear
     # the user's to-do list.
     clear_the_file(LIST_PATH)
+end
+
+def process_remove(index)
+    # Needs to be given an index. Reads from the list.txt file, 
+    #creates an array out of that, and then removes the item at that index. 
+    # Then writes the updated array back to the file.
+    current_list = read_from_file(LIST_PATH)
+    current_list.delete_at(index)
+
+    clear_the_file(LIST_PATH)
+
+    current_list.each {|item| add_to_file(LIST_PATH, item)}
 end

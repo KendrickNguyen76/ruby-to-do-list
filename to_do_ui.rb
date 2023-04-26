@@ -96,5 +96,27 @@ def handle_list_commands(command)
         # Inputing this command makes the user clear their to-do list.
         process_clear()
         puts "Your to-do list has been cleared!"
+    elsif command == "REMOVE"
+        remove_this_index = handle_removal_ui()
+        process_remove(remove_this_index - 1)
+        puts "\nEntry number #{remove_this_index} has been sucessfully removed!"
     end
+end
+
+def handle_removal_ui
+    current_list = process_list()
+    puts "Your Current List: "
+    print_array(current_list, "~ ")
+    puts
+
+    puts "Enter a number corresponding to the entry you want to remove"
+    puts "(1 corresponding to the top-most entry and ascending as you go down)"
+    puts
+    print "Entry: "
+
+    removed_index = gets.chomp
+
+    puts "\nRemoving entry number #{removed_index}..."
+
+    return removed_index.to_i
 end
