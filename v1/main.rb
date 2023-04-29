@@ -23,5 +23,3 @@ def main
         get_command_processed(command)
     end
 end
-
-main()
