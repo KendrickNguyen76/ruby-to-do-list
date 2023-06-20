@@ -5,7 +5,7 @@
 # When trying to test.
 
 # File paths
-CURRENT_RUNNING_VERSION = "./v1/main.rb"
+CURRENT_RUNNING_VERSION = "./v2/main.rb"
 
 # Requirements
 require CURRENT_RUNNING_VERSION
