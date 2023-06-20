@@ -10,6 +10,6 @@ class ProgramLogic
     def initialize(list_path)
         # Intialize one instance variable called @list_path, represents the path
         # to the file that contains our to-do list
-        @list_path = list_path
+        @list_path = Pathname.new(list_path)
     end
 end

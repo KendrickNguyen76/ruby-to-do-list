@@ -6,10 +6,8 @@ PROGRAM_LOGIC_PATH = "./v2/program_logic.rb"
 
 # Requirements
 require PROGRAM_LOGIC_PATH
-require "pathname"
 
 class ProgramUI
-
     def initialize
         # When intialized, will ask the user for a file path and also inputs
         # the starting directions.
@@ -24,7 +22,7 @@ class ProgramUI
 
         print "\nPlease enter a path to a file: "
         list_path = gets.chomp()
-        @@program_logic = ProgramLogic.new(Pathname.new(list_path))
+        @@program_logic = ProgramLogic.new(list_path)
         puts "\n"
     end
 
