@@ -4,7 +4,7 @@
 # don't have to constantly move into different directories
 # When trying to test.
 
-# File paths
+# Constants
 CURRENT_RUNNING_VERSION = "./v2/main.rb"
 
 # Requirements
