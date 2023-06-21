@@ -22,7 +22,7 @@ class ProgramUI
 
         print "\nPlease enter a path to a file: "
         list_path = gets.chomp()
-        @@program_logic = ProgramLogic.new(list_path)
+        @program_logic = ProgramLogic.new(list_path)
         puts "\n"
     end
 
@@ -37,5 +37,30 @@ class ProgramUI
         # Prints a long line of "=" which acts as a divider
         100.times {print "="}
         puts
+    end
+
+    def ask_for_input
+        print "Please enter a command: "
+        command = gets.chomp
+        puts
+
+        return command
+    end
+
+    def handle_input(user_command)
+        user_command.upcase!
+        
+        if @program_logic.is_valid_command?(user_command)
+            @program_logic.handle_commands(user_command)
+        else
+            puts "Invalid command, try again!"
+            print_divider()
+        end
+    end
+
+    def is_running?
+        # Method returns true if the program should still be running,
+        # else it returns false to indicate that it should be over
+        return @program_logic.running
     end
 end
