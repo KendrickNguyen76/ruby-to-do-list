@@ -40,6 +40,7 @@ class ProgramUI
     end
 
     def ask_for_input
+        # Asks the user for a command. Returns it as a string.
         print "Please enter a command: "
         command = gets.chomp
         puts
@@ -48,14 +49,21 @@ class ProgramUI
     end
 
     def handle_input(user_command)
+        # Needs to be given a string that represents a user's command
+        # Checks that it is valid and does different actions depending
+        # on what it is.
         user_command.upcase!
-        
-        if @program_logic.is_valid_command?(user_command)
-            @program_logic.handle_commands(user_command)
-        else
-            puts "Invalid command, try again!"
-            print_divider()
-        end
+
+        case user_command
+            when "EXIT"
+                @program_logic.end_program()
+                puts "Program ended, thank you!"
+                puts
+                print_divider()
+            else
+                puts "Command Invalid. Try again."
+                print_divider()
+        end      
     end
 
     def is_running?

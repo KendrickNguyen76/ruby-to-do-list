@@ -31,15 +31,4 @@ class ProgramLogic
 
         return @@valid_commands[input]
     end
-
-    def handle_commands(input)
-        # Responsible for taking the input given to it, and
-        # executing a given set of instructiosn depending on
-        # what it is. This method assumes input is a valid
-        # command
-        case input
-            when "EXIT"
-                end_program
-        end
-    end
 end

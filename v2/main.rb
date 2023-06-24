@@ -15,7 +15,4 @@ def main
         a_command = program.ask_for_input()
         program.handle_input(a_command)
     end
-
-    puts "Thank you for using our to-do app!"
-    puts
 end
