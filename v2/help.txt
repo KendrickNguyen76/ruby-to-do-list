@@ -1,0 +1,15 @@
+HELP & USEFUL COMMANDS
+
+General:
+HELP - Access the Help page
+LOAD - Load a file where you would like to store your list
+CFILE - See the current file where your list is stored
+EXIT - Exit the program
+
+List related:
+LIST - Access your list
+ADD - Add an item to your list
+REMOVE - Remove an item from your list
+CLEAR - Clears your entire list
+
+Reminder: You can always come back here by using the "HELP" command!
