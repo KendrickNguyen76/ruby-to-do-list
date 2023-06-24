@@ -39,6 +39,12 @@ class ProgramUI
         puts
     end
 
+    def is_running?
+        # Method returns true if the program should still be running,
+        # else it returns false to indicate that it should be over
+        return @program_logic.running
+    end
+
     def ask_for_input
         # Asks the user for a command. Returns it as a string.
         print "Please enter a command: "
@@ -60,15 +66,13 @@ class ProgramUI
                 puts "Program ended, thank you!"
                 puts
                 print_divider()
+            when "CFILE"
+                puts "Current file being used: #{@program_logic.list_path}"
+                puts
+                print_divider()
             else
                 puts "Command Invalid. Try again."
                 print_divider()
         end      
-    end
-
-    def is_running?
-        # Method returns true if the program should still be running,
-        # else it returns false to indicate that it should be over
-        return @program_logic.running
     end
 end

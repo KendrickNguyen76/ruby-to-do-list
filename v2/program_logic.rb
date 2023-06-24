@@ -5,7 +5,7 @@ require "pathname"
 
 class ProgramLogic
     # Make @list_path readable/writable
-    attr_accessor :list_path
+    attr_reader :list_path
     attr_reader :running
 
     # valid_commands stores all of the valid commands that can be used in
