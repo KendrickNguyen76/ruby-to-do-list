@@ -64,15 +64,17 @@ class ProgramUI
             when "EXIT"
                 @program_logic.end_program()
                 puts "Program ended, thank you!"
-                puts
-                print_divider()
             when "CFILE"
                 puts "Current file being used: #{@program_logic.list_path}"
-                puts
-                print_divider()
+            when "LOAD"
+                print "Enter a new file path: "
+                new_path = gets.chomp
+                @program_logic.set_new_file_path(new_path)
+                puts "\nNew file path set."
             else
                 puts "Command Invalid. Try again."
-                print_divider()
-        end      
+        end
+        
+        print_divider()
     end
 end

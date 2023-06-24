@@ -24,6 +24,10 @@ class ProgramLogic
         @running = false
     end
 
+    def set_new_file_path(new_path)
+        @list_path = Pathname.new(new_path)
+    end
+
     def is_valid_command?(input)
         # Checks to see if the input given to it is a valid command
         # within the @command hash. Returns true if it is, nil if it isn't, 
