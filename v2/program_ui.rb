@@ -45,6 +45,13 @@ class ProgramUI
         return @program_logic.running
     end
 
+    def print_array(arr, start = "")
+        # Needs to be given an array. Will print out all the stuff in that array.
+        # Start is a default argument that you can change if necessary to make
+        # your final printing result a bit different each time.
+        arr.each { |item| puts start + item }
+    end
+
     def ask_for_input
         # Asks the user for a command. Returns it as a string.
         print "Please enter a command: "
@@ -62,19 +69,42 @@ class ProgramUI
 
         case user_command
             when "EXIT"
-                @program_logic.end_program()
-                puts "Program ended, thank you!"
+                carry_out_exit()
             when "CFILE"
-                puts "Current file being used: #{@program_logic.list_path}"
+                carry_out_cfile()
             when "LOAD"
-                print "Enter a new file path: "
-                new_path = gets.chomp
-                @program_logic.set_new_file_path(new_path)
-                puts "\nNew file path set."
+                carry_out_load()
+            when "HELP"
+                carry_out_help()
             else
                 puts "Command Invalid. Try again."
         end
         
         print_divider()
+    end
+
+    def carry_out_exit
+        # Processes the "exit" command
+        @program_logic.end_program()
+        puts "Program ended, thank you!"
+    end
+
+    def carry_out_cfile
+        # Processes the "cfile" command
+        puts "Current file being used: #{@program_logic.list_path}"
+    end
+
+    def carry_out_load
+        # Processes the "load" command
+        print "Enter a new file path: "
+        new_path = gets.chomp
+        @program_logic.set_new_file_path(new_path)
+        puts "\nNew file path set."
+    end
+
+    def carry_out_help
+        # Processes the "help" command
+        help_text = @program_logic.read_from_file(@program_logic.help_txt_path)
+        print_array(help_text)
     end
 end
