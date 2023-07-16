@@ -40,4 +40,9 @@ class ProgramLogic
         File.write(@list_path, text, mode: "a")
         File.write(@list_path, "\n", mode: "a")
     end
+
+    def clear_list_path_file
+        # Clears the @list_path file by writing an empty string to it.
+        File.write(@list_path, "")
+    end
 end

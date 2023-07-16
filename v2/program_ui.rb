@@ -80,6 +80,8 @@ class ProgramUI
                 carry_out_list()
             when "ADD"
                 carry_out_add()
+            when "CLEAR"
+                carry_out_clear()
             else
                 puts "Command Invalid. Try again."
         end
@@ -135,5 +137,14 @@ class ProgramUI
         @program_logic.add_to_list_path_file(new_task)
         puts
         puts "Your task has been added!"
+    end
+
+    def carry_out_clear
+        # Processes the "clear" command, which completely 
+        # clears the user's to-do list
+        puts "Clearing out your to-do list..."
+        @program_logic.clear_list_path_file()
+        puts
+        puts "Finished!"
     end
 end
