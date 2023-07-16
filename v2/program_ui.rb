@@ -76,6 +76,8 @@ class ProgramUI
                 carry_out_load()
             when "HELP"
                 carry_out_help()
+            when "LIST"
+                carry_out_list()
             else
                 puts "Command Invalid. Try again."
         end
@@ -84,18 +86,21 @@ class ProgramUI
     end
 
     def carry_out_exit
-        # Processes the "exit" command
+        # Processes the "exit" command. Ends the program.
         @program_logic.end_program()
         puts "Program ended, thank you!"
     end
 
     def carry_out_cfile
-        # Processes the "cfile" command
+        # Processes the "cfile" command. Displays the current file path
+        # being used to store the user's to-do list.
         puts "Current file being used: #{@program_logic.list_path}"
     end
 
     def carry_out_load
-        # Processes the "load" command
+        # Processes the "load" command. ALlows the user to change
+        # the path that points to the file that they want to store/get
+        # their list from.
         print "Enter a new file path: "
         new_path = gets.chomp
         @program_logic.set_new_file_path(new_path)
@@ -103,8 +108,20 @@ class ProgramUI
     end
 
     def carry_out_help
-        # Processes the "help" command
+        # Processes the "help" command, which displays the help page.
+        # The information for this page is stored in @program_logic's
+        # help_txt_path instance variable.
         help_text = @program_logic.read_from_file(@program_logic.help_txt_path)
         print_array(help_text)
+    end
+
+    def carry_out_list
+        # Processes the "list" command, which displays the user's to-do list
+        # That is stored in @program_logic's list_path instance variable.
+        the_list = @program_logic.read_from_file(@program_logic.list_path)
+
+        puts "Your to-do list: "
+
+        print_array(the_list, " - ")
     end
 end

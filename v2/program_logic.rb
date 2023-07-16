@@ -4,9 +4,9 @@
 require "pathname"
 
 class ProgramLogic
-    # Make @list_path readable/writable
+    # Establish the different readable instance variables of
+    # the ProgramLogic class/object
     attr_reader :list_path, :running, :help_txt_path
-
 
     def initialize(list_path)
         # Intialize one instance variable called @list_path, represents the path
@@ -32,13 +32,5 @@ class ProgramLogic
         # of it and stores it into an array which gets returned
         file_text = File.read(file_path).split("\n")
         return file_text
-    end
-
-    def is_valid_command?(input)
-        # Checks to see if the input given to it is a valid command
-        # within the @command hash. Returns true if it is, nil if it isn't, 
-        # which is falsy.
-
-        return @@valid_commands[input]
     end
 end
