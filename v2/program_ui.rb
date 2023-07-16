@@ -82,6 +82,8 @@ class ProgramUI
                 carry_out_add()
             when "CLEAR"
                 carry_out_clear()
+            when "REMOVE"
+                carry_out_remove()
             else
                 puts "Command Invalid. Try again."
         end
@@ -146,5 +148,27 @@ class ProgramUI
         @program_logic.clear_list_path_file()
         puts
         puts "Finished!"
+    end
+
+    def carry_out_remove
+        # Processes the "remove" command, which removes an item from
+        # the user's to-do list.
+        current_list = @program_logic.read_from_file(@program_logic.list_path)
+        puts "Your current list: "
+        print_array(current_list, "~ ")
+        puts
+
+        puts "Enter a number corresponding to the entry you want to remove"
+        puts "(1 corresponding to the top-most entry and ascending as you go down)"
+        puts
+        print "Entry: "
+
+        removed_index = gets.chomp
+
+        puts"\nRemoving entry number #{removed_index}..."
+
+        @program_logic.remove_from_list_path_file(current_list, removed_index.to_i - 1)
+
+        puts "\nEntry number #{removed_index} has been sucessfully removed!"
     end
 end

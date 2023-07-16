@@ -45,4 +45,16 @@ class ProgramLogic
         # Clears the @list_path file by writing an empty string to it.
         File.write(@list_path, "")
     end
+
+    def remove_from_list_path_file(current_list, index)
+        # Needs to be given an index. Reads from @list_path and makes an array
+        # from it. Then deletes the item from the array at that index. Finally,
+        # clear the file at @list_path, and writes the contents of the modified
+        # array to it, giving the illusion of deleting an item from the to-do list.
+        current_list.delete_at(index)
+
+        clear_list_path_file()
+
+        current_list.each {|item| add_to_list_path_file(item)}
+    end
 end
