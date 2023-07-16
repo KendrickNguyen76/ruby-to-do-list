@@ -33,4 +33,11 @@ class ProgramLogic
         file_text = File.read(file_path).split("\n")
         return file_text
     end
+
+    def add_to_list_path_file(text)
+        # Needs to be given a string, which is the text that will be added to
+        # the file at @list_path. A newline character will also be added.
+        File.write(@list_path, text, mode: "a")
+        File.write(@list_path, "\n", mode: "a")
+    end
 end

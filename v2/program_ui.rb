@@ -78,6 +78,8 @@ class ProgramUI
                 carry_out_help()
             when "LIST"
                 carry_out_list()
+            when "ADD"
+                carry_out_add()
             else
                 puts "Command Invalid. Try again."
         end
@@ -122,6 +124,16 @@ class ProgramUI
 
         puts "Your to-do list: "
 
-        print_array(the_list, " - ")
+        print_array(the_list, "- ")
+    end
+
+    def carry_out_add
+        # Processes the "add" command, which adds an item to the user's to-do list
+        # that is stored at @program_logic's list_path instance variable.
+        print "Enter your new task: "
+        new_task = gets.chomp
+        @program_logic.add_to_list_path_file(new_task)
+        puts
+        puts "Your task has been added!"
     end
 end
