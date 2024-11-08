@@ -6,15 +6,26 @@ require "pathname"
 class ProgramLogic
     # Establish the different readable instance variables of
     # the ProgramLogic class/object
+
+	DEFAULT_PATH = "default_list.txt"
     attr_reader :list_path, :running, :help_txt_path
 
     def initialize(list_path)
         # Intialize one instance variable called @list_path, represents the path
         # to the file that contains our to-do list
         @running = true
-        @list_path = Pathname.new(list_path)
+        @list_path = set_list_path(list_path)
         @help_txt_path = "./v2/help.txt"
     end
+
+	def set_list_path(list_path)
+		case list_path
+		when ""
+			@list_path = DEFAULT_PATH
+		else
+			@list_path = Pathname.new(list_path)	
+		end
+	end
 
     def end_program
         # Ends the program by setting @running to false

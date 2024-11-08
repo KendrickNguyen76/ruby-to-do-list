@@ -1,5 +1,11 @@
+# .DS_Store
 .DS_Store
+
+# v1 files
 v1/example.txt
 v1/help.txt
 v1/list.txt
-v2/test.txt
+
+# v2 files
+v2/help.txt
+v2/default_list.txt
