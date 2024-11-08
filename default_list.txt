@@ -1,2 +1,0 @@
-Download rbenv and ruby to linux!
-Read an hour per day!
