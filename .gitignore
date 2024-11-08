@@ -1,5 +1,6 @@
-# .DS_Store
+# main directory files
 .DS_Store
+v2/default_list.txt
 
 # v1 files
 v1/example.txt
@@ -8,4 +9,3 @@ v1/list.txt
 
 # v2 files
 v2/help.txt
-v2/default_list.txt
