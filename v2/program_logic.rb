@@ -46,7 +46,13 @@ class ProgramLogic
     def read_from_file(file_path)
         # Needs to be given a file_path, reads the content
         # of it and stores it into an array which gets returned
-        file_text = File.read(file_path).split("\n")
+		file_text = Array.new
+
+		case File.exist?(file_path)
+		when true
+        	file_text = File.read(file_path).split("\n")
+		end
+
         return file_text
     end
 
